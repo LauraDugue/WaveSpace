@@ -21,14 +21,14 @@ def calculate_distance_correlation(waveData, dataBucketName = "", evaluationAngl
         raise TypeError("Data needs to be complex")
 
     hf.assure_consistency(waveData)
-    hf.squareSpatialPositions(waveData)
-    grid_x, grid_y = sensors.interpolate_pos_to_grid(
-    waveData, 
-    numGridBins=15)
-
+    
     # make new distMat based on the interpolated grid
-    positions = np.dstack((grid_x, grid_y)).reshape(-1, 2)
     if not np.any(waveData.get_distMat()):
+        hf.squareSpatialPositions(waveData)
+        grid_x, grid_y = sensors.interpolate_pos_to_grid(
+        waveData, 
+        numGridBins=15)
+        positions = np.dstack((grid_x, grid_y)).reshape(-1, 2)
         sensors.regularGrid(waveData, positions)
         distMat = waveData.get_distMat()
         print("Warning: No Distance Matrix defined, making regular grid distance matrix on the fly")
