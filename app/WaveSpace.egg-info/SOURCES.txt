@@ -1,0 +1,8 @@
+LICENSE.txt
+setup.py
+app/WaveSpace/__init__.py
+app/WaveSpace.egg-info/PKG-INFO
+app/WaveSpace.egg-info/SOURCES.txt
+app/WaveSpace.egg-info/dependency_links.txt
+app/WaveSpace.egg-info/requires.txt
+app/WaveSpace.egg-info/top_level.txt
