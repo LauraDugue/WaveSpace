@@ -17,7 +17,8 @@ print(timeSeries)
 #%%
 SensorLayout.regularGrid(timeSeries, timeSeries.get_channel_positions())
 SensorLayout.distmat_to_2d_coordinates_Isomap(timeSeries)
-DistanceCorrelation.calculate_distance_correlation(timeSeries)
+
+DistanceCorrelation.calculate_distance_correlation(timeSeries, dataBucketName="ComplexPhaseData")
 Result = timeSeries.DataBuckets["PhaseDistanceCorrelation"].get_data()
 #Get the timepoint where the correlation is maximal and the corresponding sourcepoints (in space)
 filteredResult = Result[(Result['trialind']==0)]
